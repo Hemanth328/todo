@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>To Do List</title>
+</head>
+<body>
+<h3>Create Task</h3>
+<font color='blue' th:text="${task}"></font>
+<form th:action="@{/createtask}" th:object="${TaskBinding}" method="post">
+
+    <table>
+        <tr>
+            <td>TaskName:</td>
+            <td><input type="text" th:field="*{taskName}" /></td>
+        </tr>
+        <tr>
+            <td>TaskDate:</td>
+            <td><input type="date" th:field="*{taskDate}" /></td>
+            <!-- You can use the commented out version below if you want to restrict input pattern -->
+            <!-- <td><input type="text" th:field="*{taskDate}" pattern="\d{2}-\d{2}-\d{4}" /></td> -->
+        </tr>
+        <tr>
+            <td>TaskTime:</td>
+            <td><input type="time" th:field="*{taskTime}" /></td>
+            <!-- You can use the commented out version below if you want to restrict input pattern -->
+            <!-- <td><input type="text" th:field="*{taskTime}" pattern="\d{2}:\d{2}:\d{2}" /></td> -->
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="create" />
+            </td>
+        </tr>
+    </table>
+
+</form>
+
+<a href="/viewtask">View Task</a>
+</body>
+</html>

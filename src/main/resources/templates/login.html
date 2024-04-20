@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>To Do List</title>
+</head>
+<body>
+
+<h3>Login</h3>
+<font color='red' th:text="${errMsg}"></font>
+<form th:action="@{/login}" th:object="${UserLogin}" method="post">
+
+    <table>
+        <tr>
+            <td>UserName:</td>
+            <td><input type="email" th:field="*{userMail}" /></td>
+        </tr>
+        <tr>
+            <td>UserCode:</td>
+            <td><input type="text" th:field="*{userIdentity}" /></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="login" />
+            </td>
+        </tr>
+    </table>
+
+</form>
+
+</body>
+</html>

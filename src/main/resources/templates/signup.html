@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>To Do List</title>
+</head>
+<body>
+
+<h3>Sign up</h3>
+
+<font color='red' th:text="${errMsg}"></font>
+<form  th:action="@{/register}" th:object="${UserBinding}" method="post">
+
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td><input type="text" th:name="userName" /></td>
+        </tr>
+        <tr>
+            <td>Mail:</td>
+            <td><input type="email" th:name="userMail" /></td>
+        </tr>
+        <tr>
+            <td>Phno:</td>
+            <td><input type="text" th:name="userPhno" /></td>
+        </tr>
+        <tr>
+            <td>UserCode:</td>
+            <td><input type="text" th:name="userIdentity" /></td>
+        </tr>
+        <tr>
+            <td>Gender:</td>
+            <td>
+                <input type="radio" th:name="userGender" value="male" /> Male
+                <input type="radio" th:name="userGender" value="female" /> Female
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="signup" />
+            </td>
+        </tr>
+    </table>
+
+</form>
+
+</body>
+</html>
