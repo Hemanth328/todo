@@ -36,6 +36,11 @@ public class UserController {
 	@PostMapping("/register")
 	public String handleSinupPage(@ModelAttribute("UserBinding") UserBinding ubind, Model model) {
 
+		if("".equals(ubind.getUserMail()) || "".equals(ubind.getUserName()) || "".equals(ubind.getUserName())) {
+			model.addAttribute("errMsg", "User Name, Mail and Password are mandatory for signing up");
+			return "signup";
+		}
+
 		System.out.println(ubind);
 
 		String result = service.registeruser(ubind);
@@ -66,8 +71,6 @@ public class UserController {
 		System.out.println(userlogin);
 
 		if (userlogin != null) {
-
-//			session.setAttribute("userId", userlogin.getUserId());
 			return "redirect:/createtask?userId=" + userlogin.getUserId();
 		} else {
 			model.addAttribute("errMsg", "Entered wrong credentials !");
@@ -76,22 +79,3 @@ public class UserController {
 	}
 
 }
-
-/*
- * java.lang.IllegalStateException: Neither BindingResult nor plain target
- * object for bean name 'UserBinding' available as request attribute
- */
-
-//java.lang.IllegalStateException: Neither BindingResult nor plain
-//target object for bean name 'UserLogin' available as request attribute--added @ModelAttribute("UserLogin")
-
-//org.hibernate.query.QueryTypeMismatchException: Specified result type [java.lang.String]
-//did not match Query selection type [com.org.entity.UserEntity] - multiple selections: use Tuple or array
-
-//boolean details=service.loginUser(ulogin.getUserMail(),ulogin.getUserIdentity());
-
-//System.out.println(details);
-
-/*
- * if(userlogin==null) { return "login"; } else { return "createtask"; }
- */
