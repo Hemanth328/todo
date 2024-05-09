@@ -12,7 +12,6 @@
     <artifactId>ToDoList</artifactId>
     <version>1.0</version>
     <packaging>jar</packaging>
-    <name>ToDoList</name>
     <description>ToDoList</description>
     <properties>
         <java.version>17</java.version>
